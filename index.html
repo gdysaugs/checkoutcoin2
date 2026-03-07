@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CheckoutCoins2</title>
+    <meta name="description" content="CheckoutCoins2 payment site" />
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: radial-gradient(circle at top, #1f2937 0%, #0f172a 45%, #020617 100%);
+        color: #e2e8f0;
+        font-family: "Segoe UI", "Noto Sans JP", sans-serif;
+      }
+      main {
+        width: min(720px, 92vw);
+        border: 1px solid #334155;
+        border-radius: 16px;
+        padding: 28px;
+        background: rgba(15, 23, 42, 0.88);
+        backdrop-filter: blur(2px);
+      }
+      h1 {
+        margin: 0 0 12px;
+        font-size: clamp(28px, 5vw, 44px);
+      }
+      p {
+        margin: 0;
+        line-height: 1.6;
+        color: #cbd5e1;
+      }
+      .badge {
+        display: inline-block;
+        margin-bottom: 14px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid #475569;
+        color: #93c5fd;
+        font-size: 12px;
+        letter-spacing: .04em;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <span class="badge">checkoutcoins2.win</span>
+      <h1>CheckoutCoins2</h1>
+      <p>
+        Cloudflare Pages 接続確認用の初期ページです。<br />
+        ここから SparkArt 向け決済ページを実装していきます。
+      </p>
+    </main>
+  </body>
+</html>
