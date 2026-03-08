@@ -5,3 +5,4 @@ dist/
 .wrangler/
 .env
 .env.*
+*:Zone.Identifier

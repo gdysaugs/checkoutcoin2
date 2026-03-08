@@ -1,0 +1,67 @@
+﻿<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Artコイン購入 | Spark Game Hub</title>
+    <meta name="description" content="Spark Game HubのArtコイン購入ページ" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <header class="hero purchase-hero">
+        <h1>Artコイン購入</h1>
+      </header>
+
+      <section class="about">
+        <h2>購入前にログイン</h2>
+        <p>
+          コイン購入にはログインが必要です。Googleログインまたはメールでログインしてから購入してください。
+        </p>
+        <ul>
+          <li>Googleログインとメールログインに対応</li>
+          <li>決済完了後、同一アカウントにコインが反映されます</li>
+        </ul>
+      </section>
+
+      <section class="wallet">
+        <div>Coins: <strong id="coins">-</strong></div>
+        <div id="authStatus" class="auth-status">ログインしていません</div>
+        <div class="actions auth-actions">
+          <button id="loginGoogle" type="button">Googleでログイン</button>
+          <button id="logout" type="button" hidden style="display: none">ログアウト</button>
+        </div>
+        <div class="magic-link-row">
+          <input id="magicEmail" type="email" placeholder="メールアドレス" autocomplete="email" />
+          <button id="loginMagic" type="button">メールでログイン</button>
+        </div>
+      </section>
+      <div id="status" class="status"></div>
+
+      <section class="cards">
+        <article class="card">
+          <h3>30コイン</h3>
+          <p class="plan-price">690円</p>
+          <button class="buy-button" data-price-id="price_1T8HvfAiNL47NYQB3Bf7oFKI">購入する</button>
+        </article>
+        <article class="card">
+          <h3>80コイン</h3>
+          <p class="plan-price">1,680円</p>
+          <button class="buy-button" data-price-id="price_1T8Hw4AiNL47NYQBrTG7nOfM">購入する</button>
+        </article>
+        <article class="card">
+          <h3>170コイン</h3>
+          <p class="plan-price">3,280円</p>
+          <button class="buy-button" data-price-id="price_1T8HwTAiNL47NYQBylwGY6xQ">購入する</button>
+        </article>
+        <article class="card">
+          <h3>380コイン</h3>
+          <p class="plan-price">6,480円</p>
+          <button class="buy-button" data-price-id="price_1T8Hx4AiNL47NYQB5CLzqerl">購入する</button>
+        </article>
+      </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./purchase.js"></script>
+  </body>
+</html>
