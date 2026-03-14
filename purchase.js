@@ -12,9 +12,6 @@ const coinsEl = document.getElementById("coins")
 const statusEl = document.getElementById("status")
 const authStatusEl = document.getElementById("authStatus")
 const loginGoogleBtn = document.getElementById("loginGoogle")
-const loginMagicBtn = document.getElementById("loginMagic")
-const magicEmailEl = document.getElementById("magicEmail")
-const magicLinkRowEl = document.querySelector(".magic-link-row")
 const logoutBtn = document.getElementById("logout")
 
 const PURCHASE_REDIRECT_FLAG_KEY = "post_login_redirect"
@@ -74,7 +71,6 @@ function updateAuthUi() {
   }
 
   setVisible(loginGoogleBtn, !loggedIn)
-  setVisible(magicLinkRowEl, !loggedIn)
   setVisible(logoutBtn, loggedIn)
 
   if (logoutBtn) logoutBtn.disabled = !loggedIn
@@ -200,26 +196,6 @@ async function onGoogleLoginClick() {
   }
 }
 
-async function onMagicLoginClick() {
-  if (!ensureAuthClient()) return
-  const email = String(magicEmailEl?.value || "").trim()
-  if (!email) {
-    setStatus("メールアドレスを入力してください", true)
-    return
-  }
-
-  try {
-    markPostLoginRedirect()
-    const { error } = await state.supabase.auth.signInWithOtp({
-      email,
-      options: { emailRedirectTo: OAUTH_REDIRECT_URL },
-    })
-    if (error) throw error
-    setStatus("ログインメールを送信しました。メールを確認してください。")
-  } catch (error) {
-    setStatus(error instanceof Error ? error.message : "メールログインに失敗しました", true)
-  }
-}
 
 async function onLogoutClick() {
   if (!ensureAuthClient()) return
@@ -235,11 +211,6 @@ function bindAuthButtons() {
   if (loginGoogleBtn) {
     loginGoogleBtn.addEventListener("click", () => {
       void onGoogleLoginClick()
-    })
-  }
-  if (loginMagicBtn) {
-    loginMagicBtn.addEventListener("click", () => {
-      void onMagicLoginClick()
     })
   }
   if (logoutBtn) {
