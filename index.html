@@ -3,94 +3,241 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Spark Game Hub</title>
-    <meta name="description" content="コインを共有して遊べるゲームサイト" />
+    <title>UsagiCreator | 動画制作・編集代行</title>
+    <meta
+      name="description"
+      content="UsagiCreate合同会社が運営するUsagiCreatorは、動画制作・編集・SNS素材制作を個別見積りで承る制作代行サービスです。"
+    />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <main class="wrap">
-      <header class="hero">
-        <img src="./assets/banner.png" alt="Spark Game Hub Banner" />
-        <div class="overlay">
-          <span class="badge">checkoutcoins2.win</span>
-          <h1>Spark Game Hub</h1>
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="UsagiCreator top">
+        <span class="brand-mark">UC</span>
+        <span>UsagiCreator</span>
+      </a>
+      <nav class="site-nav" aria-label="main navigation">
+        <a href="#services">サービス</a>
+        <a href="#flow">制作の流れ</a>
+        <a href="#pricing">料金</a>
+        <a href="#company">会社情報</a>
+        <a class="nav-cta" href="#contact">相談する</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Video Production / Editing Partner</p>
+          <h1>企画から納品まで、動画制作をまとめて代行します。</h1>
+          <p class="lead">
+            UsagiCreatorは、SNS動画、広告素材、商品紹介、AIを活用した映像素材制作まで、
+            目的に合わせて制作内容を整理し、必要な工程を個別に設計する法人向け制作サービスです。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#contact">制作相談を送る</a>
+            <a class="button secondary" href="#services">対応内容を見る</a>
+          </div>
         </div>
-      </header>
-
-      <section class="about">
-        <h2>このサイトについて</h2>
-        <p>
-          Spark Game Hubは、コインを使ってブラウザゲームを遊べるサイトです。
-        </p>
-        <ul>
-          <li>対応ゲーム: オセロ / 将棋（ライト版） / 4目並べ</li>
-          <li>コインはゲーム開始時に消費されます</li>
-          <li>Googleログイン後に残高が同期されます</li>
-        </ul>
-      </section>
-
-      <section class="wallet">
-        <div>Coins: <strong id="coins">-</strong></div>
-        <div id="authStatus" class="auth-status">ログインしていません</div>
-        <div class="actions">
-          <button id="login">Googleでログイン</button>
-          <button id="logout">ログアウト</button>
-          <button id="refresh">コイン再取得</button>
+        <div class="hero-panel" aria-label="service summary">
+          <div class="panel-card active">
+            <span>01</span>
+            <strong>ヒアリング</strong>
+            <p>目的、尺、媒体、納期、参考動画を整理します。</p>
+          </div>
+          <div class="panel-card">
+            <span>02</span>
+            <strong>制作・編集</strong>
+            <p>構成、カット編集、テロップ、BGM、AI素材制作に対応します。</p>
+          </div>
+          <div class="panel-card">
+            <span>03</span>
+            <strong>納品</strong>
+            <p>SNS投稿用、広告用、社内共有用など用途別に納品します。</p>
+          </div>
         </div>
       </section>
-      <div id="status" class="status"></div>
 
-      <section class="cards">
-        <article class="card">
-          <h3>オセロ</h3>
-          <p>8x8で石を挟んで反転。最終的に多い方が勝ち。</p>
-          <div class="cost">消費: 2コイン / プレイ</div>
-          <button data-game="othello" data-cost="2">開始</button>
-        </article>
-        <article class="card">
-          <h3>将棋（ライト版）</h3>
-          <p>5x5の簡易将棋。先に相手の玉を取った方が勝ち。</p>
-          <div class="cost">消費: 3コイン / プレイ</div>
-          <button data-game="shogi" data-cost="3">開始</button>
-        </article>
-        <article class="card">
-          <h3>4目並べ</h3>
-          <p>落とした駒を縦横斜めに4つ揃えたら勝ち。</p>
-          <div class="cost">消費: 1コイン / プレイ</div>
-          <button data-game="connect4" data-cost="1">開始</button>
-        </article>
-      </section>
-
-      <section class="play">
-        <div class="play-head">
-          <h2 id="title">ゲームを選んでください</h2>
-          <button id="restart">現在のゲームをリセット</button>
+      <section id="services" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Services</p>
+          <h2>対応できること</h2>
+          <p>
+            単発の動画編集から、継続的なクリエイティブ制作まで、必要な範囲だけ依頼できます。
+          </p>
         </div>
-
-        <section id="g-othello" class="game">
-          <div id="othelloInfo" class="note"></div>
-          <div id="othelloBoard" class="othello"></div>
-        </section>
-
-        <section id="g-shogi" class="game">
-          <div id="shogiInfo" class="note"></div>
-          <div id="shogiBoard" class="shogi"></div>
-        </section>
-
-        <section id="g-connect4" class="game">
-          <div id="connectInfo" class="note"></div>
-          <div id="c4Controls" class="c4-controls"></div>
-          <div id="c4Board" class="c4-board"></div>
-        </section>
+        <div class="service-grid">
+          <article class="service-card">
+            <h3>SNS動画編集</h3>
+            <p>ショート動画、縦型動画、切り抜き、テロップ、BGM、投稿用の尺調整に対応します。</p>
+          </article>
+          <article class="service-card">
+            <h3>広告・商品紹介素材</h3>
+            <p>商品やサービスの魅力が伝わる構成、説明テキスト、短尺広告素材を制作します。</p>
+          </article>
+          <article class="service-card">
+            <h3>AI映像素材の制作</h3>
+            <p>参考画像やコンセプトをもとに、動画内で使える補助素材や表現案を制作します。</p>
+          </article>
+          <article class="service-card">
+            <h3>編集まわりの代行</h3>
+            <p>素材整理、色味調整、音量調整、字幕、サムネイル用画像など周辺作業も相談できます。</p>
+          </article>
+        </div>
       </section>
 
-      <footer class="legal-nav">
-        <a href="./purchase.html">ゲームコイン購入</a>
+      <section id="flow" class="section flow-section">
+        <div class="section-heading">
+          <p class="eyebrow">Workflow</p>
+          <h2>制作の流れ</h2>
+        </div>
+        <ol class="flow-list">
+          <li>
+            <span>1</span>
+            <div>
+              <strong>問い合わせ</strong>
+              <p>作りたい動画の概要、希望納期、用途、参考URLなどを送ってください。</p>
+            </div>
+          </li>
+          <li>
+            <span>2</span>
+            <div>
+              <strong>内容確認・見積り</strong>
+              <p>作業範囲を確認し、制作内容と費用を個別にご提案します。</p>
+            </div>
+          </li>
+          <li>
+            <span>3</span>
+            <div>
+              <strong>制作開始</strong>
+              <p>素材受領後、構成確認、編集、必要に応じた修正を進めます。</p>
+            </div>
+          </li>
+          <li>
+            <span>4</span>
+            <div>
+              <strong>納品</strong>
+              <p>確認後、用途に合わせた形式で納品します。</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section id="pricing" class="section pricing-section">
+        <div class="pricing-card">
+          <p class="eyebrow">Pricing</p>
+          <h2>料金は個別にご相談ください</h2>
+          <p>
+            動画の尺、素材の有無、編集量、AI素材制作の有無、修正回数、納期によって必要な作業が変わるため、
+            固定プランではなく案件ごとに見積りを作成しています。
+          </p>
+          <ul class="check-list">
+            <li>相談・概要確認は無料です。</li>
+            <li>正式な制作開始前に作業範囲と金額を提示します。</li>
+            <li>継続制作、複数本まとめての依頼も相談できます。</li>
+          </ul>
+          <a class="button primary" href="#contact">見積り相談をする</a>
+        </div>
+      </section>
+
+      <section id="company" class="section company-section">
+        <div class="section-heading">
+          <p class="eyebrow">Company</p>
+          <h2>運営会社</h2>
+        </div>
+        <dl class="company-table">
+          <div>
+            <dt>サービス名</dt>
+            <dd>UsagiCreator</dd>
+          </div>
+          <div>
+            <dt>販売事業者</dt>
+            <dd>UsagiCreate合同会社</dd>
+          </div>
+          <div>
+            <dt>代表者</dt>
+            <dd>加藤拓巳</dd>
+          </div>
+          <div>
+            <dt>所在地</dt>
+            <dd>愛知県一宮市今伊勢町本神戸目久井戸472-1</dd>
+          </div>
+          <div>
+            <dt>電話番号</dt>
+            <dd><a href="tel:09041570958">090-4157-0958</a></dd>
+          </div>
+          <div>
+            <dt>事業内容</dt>
+            <dd>動画制作、動画編集、AIクリエイティブ制作支援、SNS向け素材制作</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section id="contact" class="section contact-section">
+        <div class="contact-copy">
+          <p class="eyebrow">Contact</p>
+          <h2>制作内容を送る</h2>
+          <p>
+            まだ内容が固まっていない段階でも相談できます。目的、参考動画、希望納期、予算感があると確認が早くなります。
+          </p>
+        </div>
+        <form id="contactForm" class="contact-form">
+          <label>
+            お名前
+            <input name="name" autocomplete="name" required />
+          </label>
+          <label>
+            会社名・屋号
+            <input name="company" autocomplete="organization" />
+          </label>
+          <label>
+            メールアドレス
+            <input name="email" type="email" autocomplete="email" required />
+          </label>
+          <label>
+            電話番号
+            <input name="phone" autocomplete="tel" />
+          </label>
+          <label>
+            相談内容
+            <select name="service">
+              <option>動画制作・編集</option>
+              <option>SNS向け短尺動画</option>
+              <option>広告・商品紹介素材</option>
+              <option>AI映像素材の制作</option>
+              <option>その他</option>
+            </select>
+          </label>
+          <label>
+            希望納期
+            <input name="deadline" placeholder="例: 2週間以内、今月中など" />
+          </label>
+          <label class="full">
+            概要
+            <textarea
+              name="message"
+              rows="7"
+              required
+              placeholder="作りたい動画の内容、用途、尺、参考URL、素材の有無などを書いてください。"
+            ></textarea>
+          </label>
+          <button class="button primary full" type="submit">メールで相談内容を送る</button>
+          <p id="formStatus" class="form-status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>UsagiCreator</strong>
+        <p>UsagiCreate合同会社が運営する動画制作・編集代行サービスです。</p>
+      </div>
+      <nav>
         <a href="./terms.html">利用規約</a>
         <a href="./tokushoho.html">特定商取引法に基づく表記</a>
-      </footer>
-    </main>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+      </nav>
+    </footer>
+
     <script src="./app.js"></script>
   </body>
 </html>
