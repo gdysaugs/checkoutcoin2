@@ -88,9 +88,13 @@
 
     const code = url.searchParams.get("code");
     if (code) {
-      const { data, error } = await authClient.auth.exchangeCodeForSession(code);
+      // The browser client exchanges PKCE callbacks during initialization.
+      // getSession waits for that initialization; exchanging the same code here
+      // would consume the verifier twice and surface a false login error.
+      const { data, error } = await authClient.auth.getSession();
       cleanAuthParams();
       if (error) throw error;
+      if (!data.session) throw new Error("ログインを完了できませんでした。もう一度お試しください。");
       return data.session ?? null;
     }
 
@@ -229,7 +233,7 @@
       authClient = window.supabase.createClient(String(config.url), String(config.anonKey), {
         auth: {
           autoRefreshToken: true,
-          detectSessionInUrl: false,
+          detectSessionInUrl: true,
           flowType: "pkce",
           persistSession: true,
         },
