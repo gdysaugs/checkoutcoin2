@@ -3,17 +3,141 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="refresh" content="0; url=./#contact" />
-    <title>制作相談 | UsagiCreator</title>
-    <meta name="description" content="UsagiCreatorへの制作相談ページです。" />
-    <link rel="stylesheet" href="./styles.css" />
+    <meta name="description" content="CrownAIのチケット購入ページです。" />
+    <title>ストア | CrownAI</title>
+    <link rel="stylesheet" href="./purchase.css" />
   </head>
-  <body class="simple-page">
-    <main class="simple-card">
-      <p class="eyebrow">Contact</p>
-      <h1>制作相談へ移動します</h1>
-      <p>料金は内容確認後の個別見積りです。自動で移動しない場合は下のボタンから進んでください。</p>
-      <a class="button primary" href="./#contact">制作相談を送る</a>
-    </main>
+  <body>
+    <div class="camera-app purchase-app purchase-page">
+      <main class="store-shell">
+        <section class="store-overview" aria-label="ストア概要">
+          <div class="store-overview__copy">
+            <p class="store-eyebrow">CROWNAI STORE</p>
+            <h1>チケットを購入</h1>
+            <p>Googleでログインし、ご希望のプランを選択してください。</p>
+          </div>
+          <div class="store-balance" aria-label="チケット残高">
+            <span>現在の残高</span>
+            <strong id="balanceValue">--</strong>
+            <small id="balanceEmail">ログイン後に表示されます</small>
+          </div>
+        </section>
+
+        <div class="store-layout">
+          <section class="store-plans" aria-label="チケット購入">
+            <div class="store-section-head">
+              <div>
+                <p class="store-eyebrow">BUY TICKETS</p>
+                <h2>購入プラン</h2>
+              </div>
+              <span class="store-chip">カード決済</span>
+            </div>
+
+            <div class="store-campaign-banner" aria-label="割引キャンペーン">
+              <strong>30%割引キャンペーン中</strong>
+              <span>期間限定で通常よりお得にチケットを追加できます。</span>
+            </div>
+
+            <div class="store-plan-list">
+              <article class="store-plan-row">
+                <div class="store-plan-row__head">
+                  <span class="store-plan-row__index">01</span>
+                  <span class="store-plan-row__discount">30%OFF</span>
+                </div>
+                <div class="store-plan-row__main">
+                  <span>ライト</span>
+                  <strong>50</strong>
+                  <em>枚</em>
+                </div>
+                <div class="store-plan-row__price">
+                  <div class="store-plan-row__price-line"><strong>¥700</strong><del>¥910</del></div>
+                  <span>キャンペーン価格</span>
+                </div>
+                <button
+                  type="button"
+                  class="store-button store-button--buy purchase-button"
+                  data-price-id="price_1TtiRhPTbJYcrwd4gUPksklj"
+                  disabled
+                >購入する</button>
+              </article>
+
+              <article class="store-plan-row">
+                <div class="store-plan-row__head">
+                  <span class="store-plan-row__index">02</span>
+                  <span class="store-plan-row__discount">30%OFF</span>
+                </div>
+                <div class="store-plan-row__main">
+                  <span>スタンダード</span>
+                  <strong>110</strong>
+                  <em>枚</em>
+                </div>
+                <div class="store-plan-row__price">
+                  <div class="store-plan-row__price-line"><strong>¥1,500</strong><del>¥1,950</del></div>
+                  <span>キャンペーン価格</span>
+                </div>
+                <button
+                  type="button"
+                  class="store-button store-button--buy purchase-button"
+                  data-price-id="price_1TtiRwPTbJYcrwd4tWdMtjMJ"
+                  disabled
+                >購入する</button>
+              </article>
+
+              <article class="store-plan-row">
+                <div class="store-plan-row__head">
+                  <span class="store-plan-row__index">03</span>
+                  <span class="store-plan-row__discount">30%OFF</span>
+                </div>
+                <div class="store-plan-row__main">
+                  <span>ボリューム</span>
+                  <strong>230</strong>
+                  <em>枚</em>
+                </div>
+                <div class="store-plan-row__price">
+                  <div class="store-plan-row__price-line"><strong>¥3,000</strong><del>¥3,900</del></div>
+                  <span>キャンペーン価格</span>
+                </div>
+                <button
+                  type="button"
+                  class="store-button store-button--buy purchase-button"
+                  data-price-id="price_1TtiS9PTbJYcrwd4iwcNfZNI"
+                  disabled
+                >購入する</button>
+              </article>
+            </div>
+
+            <p id="purchaseMessage" class="store-message" hidden></p>
+          </section>
+
+          <aside class="store-side" aria-label="アカウント管理">
+            <section class="store-side-block">
+              <div class="store-section-head store-section-head--compact">
+                <div>
+                  <p class="store-eyebrow">ACCOUNT</p>
+                  <h2>ログイン状態</h2>
+                </div>
+                <span class="store-chip" id="authChip">確認中</span>
+              </div>
+
+              <div class="store-login-box" id="loggedInBox" hidden>
+                <p>ログイン中のアカウント</p>
+                <strong class="store-login-email" id="loggedInEmail"></strong>
+                <button type="button" class="store-button store-button--ghost" id="logoutButton">ログアウト</button>
+              </div>
+              <div class="store-login-box" id="loginBox">
+                <p>ログインするとチケットを購入できます。</p>
+                <button type="button" class="store-button store-button--primary" id="loginButton" disabled>
+                  確認中...
+                </button>
+              </div>
+              <p id="authMessage" class="store-message store-message--error" hidden></p>
+            </section>
+          </aside>
+        </div>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.0/dist/umd/supabase.min.js"></script>
+    <script src="./purchase.js"></script>
   </body>
 </html>

@@ -1,8 +1,8 @@
-# UsagiCreator
+# AudioCreate Original BGM
 
-Corporate landing page for UsagiCreate合同会社.
+Serious, business-oriented landing page for AudioCreate's custom original BGM production service.
 
-The site is a static Cloudflare Pages project for the corporate inquiry landing page.
+The site is a static Cloudflare Pages project with a mail-based production inquiry flow.
 
 ## Deploy
 

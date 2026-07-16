@@ -1,4 +1,4 @@
-const CONTACT_EMAIL = "sparksupport7@gmail.com";
+const CONTACT_EMAIL = "supportmaxxx777@gmail.com";
 
 function valueOf(formData, key) {
   return String(formData.get(key) || "").trim();
@@ -10,9 +10,11 @@ function buildMailBody(formData) {
     ["会社名・屋号", valueOf(formData, "company") || "未入力"],
     ["メールアドレス", valueOf(formData, "email")],
     ["電話番号", valueOf(formData, "phone") || "未入力"],
-    ["相談内容", valueOf(formData, "service")],
+    ["利用用途", valueOf(formData, "usage")],
+    ["希望する長さ", valueOf(formData, "duration") || "未入力"],
     ["希望納期", valueOf(formData, "deadline") || "未入力"],
-    ["概要", valueOf(formData, "message")],
+    ["希望する雰囲気・参考曲", valueOf(formData, "mood") || "未入力"],
+    ["相談内容", valueOf(formData, "message")],
   ];
 
   return rows.map(([label, value]) => `${label}: ${value}`).join("\n");
@@ -31,7 +33,7 @@ function setupContactForm() {
     }
 
     const formData = new FormData(form);
-    const subject = "UsagiCreator 制作相談";
+    const subject = "AudioCreate オリジナルBGM制作相談";
     const body = buildMailBody(formData);
     const mailto = new URL(`mailto:${CONTACT_EMAIL}`);
     mailto.searchParams.set("subject", subject);
